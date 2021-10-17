@@ -13,6 +13,12 @@
 		176389E926E2DA0B00E1B298 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176389E826E2DA0B00E1B298 /* Preview Assets.xcassets */; };
 		176389F426E2DA0C00E1B298 /* TimeLeftTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176389F326E2DA0C00E1B298 /* TimeLeftTrackerTests.swift */; };
 		176389FF26E2DA0C00E1B298 /* TimeLeftTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176389FE26E2DA0C00E1B298 /* TimeLeftTrackerUITests.swift */; };
+		17638A0E26E2DAE400E1B298 /* TimeTrackerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17638A0D26E2DAE400E1B298 /* TimeTrackerRow.swift */; };
+		17638A1126E2DBAD00E1B298 /* TimeTrackerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17638A1026E2DBAD00E1B298 /* TimeTrackerModel.swift */; };
+		17638A1326E2DC9500E1B298 /* TimeTrackerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17638A1226E2DC9500E1B298 /* TimeTrackerHandler.swift */; };
+		17638A1526E35E4F00E1B298 /* timers.json in Resources */ = {isa = PBXBuildFile; fileRef = 17638A1426E35E4F00E1B298 /* timers.json */; };
+		17638A1726E54A8800E1B298 /* TimerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17638A1626E54A8800E1B298 /* TimerDetails.swift */; };
+		17638A1926E56B2500E1B298 /* UserTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17638A1826E56B2500E1B298 /* UserTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,12 @@
 		176389FA26E2DA0C00E1B298 /* TimeLeftTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeLeftTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		176389FE26E2DA0C00E1B298 /* TimeLeftTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLeftTrackerUITests.swift; sourceTree = "<group>"; };
 		17638A0026E2DA0C00E1B298 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17638A0D26E2DAE400E1B298 /* TimeTrackerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrackerRow.swift; sourceTree = "<group>"; };
+		17638A1026E2DBAD00E1B298 /* TimeTrackerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrackerModel.swift; sourceTree = "<group>"; };
+		17638A1226E2DC9500E1B298 /* TimeTrackerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrackerHandler.swift; sourceTree = "<group>"; };
+		17638A1426E35E4F00E1B298 /* timers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = timers.json; sourceTree = "<group>"; };
+		17638A1626E54A8800E1B298 /* TimerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDetails.swift; sourceTree = "<group>"; };
+		17638A1826E56B2500E1B298 /* UserTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +107,14 @@
 		176389E026E2DA0A00E1B298 /* TimeLeftTracker */ = {
 			isa = PBXGroup;
 			children = (
+				17638A0F26E2DB4400E1B298 /* Model */,
+				17638A0C26E2DAA500E1B298 /* Views */,
 				176389E126E2DA0A00E1B298 /* TimeLeftTrackerApp.swift */,
 				176389E326E2DA0A00E1B298 /* ContentView.swift */,
 				176389E526E2DA0B00E1B298 /* Assets.xcassets */,
 				176389EA26E2DA0B00E1B298 /* Info.plist */,
 				176389E726E2DA0B00E1B298 /* Preview Content */,
+				17638A1426E35E4F00E1B298 /* timers.json */,
 			);
 			path = TimeLeftTracker;
 			sourceTree = "<group>";
@@ -128,6 +143,25 @@
 				17638A0026E2DA0C00E1B298 /* Info.plist */,
 			);
 			path = TimeLeftTrackerUITests;
+			sourceTree = "<group>";
+		};
+		17638A0C26E2DAA500E1B298 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				17638A0D26E2DAE400E1B298 /* TimeTrackerRow.swift */,
+				17638A1626E54A8800E1B298 /* TimerDetails.swift */,
+				17638A1826E56B2500E1B298 /* UserTextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		17638A0F26E2DB4400E1B298 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				17638A1026E2DBAD00E1B298 /* TimeTrackerModel.swift */,
+				17638A1226E2DC9500E1B298 /* TimeTrackerHandler.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17638A1526E35E4F00E1B298 /* timers.json in Resources */,
 				176389E926E2DA0B00E1B298 /* Preview Assets.xcassets in Resources */,
 				176389E626E2DA0B00E1B298 /* Assets.xcassets in Resources */,
 			);
@@ -260,7 +295,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				176389E426E2DA0A00E1B298 /* ContentView.swift in Sources */,
+				17638A1126E2DBAD00E1B298 /* TimeTrackerModel.swift in Sources */,
 				176389E226E2DA0A00E1B298 /* TimeLeftTrackerApp.swift in Sources */,
+				17638A0E26E2DAE400E1B298 /* TimeTrackerRow.swift in Sources */,
+				17638A1926E56B2500E1B298 /* UserTextField.swift in Sources */,
+				17638A1726E54A8800E1B298 /* TimerDetails.swift in Sources */,
+				17638A1326E2DC9500E1B298 /* TimeTrackerHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
