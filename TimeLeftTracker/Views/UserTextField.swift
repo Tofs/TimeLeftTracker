@@ -8,10 +8,21 @@
 import SwiftUI
 
 struct UserTextField: View {
-    @EnvironmentObject var modelData : ModelData
-    @State var text: String = ""
+    @EnvironmentObject var modelData: ModelData
+    var modelId : Int
+    
+    var timerIndex: Int{
+        modelData.timers.firstIndex(where: {$0.id==modelId})!
+    }
+    
+    @State var text: String;
     var body: some View {
-        TextField("Text field", text: $text)
+        TextField("Text field",
+                  text: $text,
+                  onEditingChanged: { _ in modelData.timers[timerIndex].name = text },
+                  onCommit: { print("things")}
+        )
+            
     }
 }
 
@@ -19,7 +30,7 @@ struct UserTextField_Previews: PreviewProvider {
     static let modelData = ModelData()
     
     static var previews: some View {
-        UserTextField(text: modelData.timers[0].name)
+        UserTextField(modelId: modelData.timers[0].id, text: modelData.timers[0].name)
             .environmentObject(modelData)
     }
 }

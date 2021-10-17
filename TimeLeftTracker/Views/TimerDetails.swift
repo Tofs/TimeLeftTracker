@@ -19,7 +19,7 @@ struct TimerDetails: View {
         VStack{
             HStack {
                 Text("Timer name")
-                UserTextField(text: modelData.timers[timerIndex].name)
+                UserTextField(modelId: model.id, text: modelData.timers[timerIndex].name)
                 Spacer()
             }
             HStack{

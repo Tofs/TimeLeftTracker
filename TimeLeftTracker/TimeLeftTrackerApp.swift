@@ -8,10 +8,12 @@
 import SwiftUI
 
 @main
-struct TimeLeftTrackerApp: App {
+struct TimeLeftTrackerApp: App{
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(ModelData())
         }
     }
 }
