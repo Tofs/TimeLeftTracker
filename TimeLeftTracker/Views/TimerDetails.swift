@@ -19,8 +19,14 @@ struct TimerDetails: View {
         VStack{
             HStack {
                 Text("Timer name")
-                UserTextField(text: model.name)
-        }
+                UserTextField(text: modelData.timers[timerIndex].name)
+                Spacer()
+            }
+            HStack{
+                Text("Is active")
+                ActiveButton(isSet: $modelData.timers[timerIndex].active)
+                Spacer()
+            }
             Spacer()
        
         }

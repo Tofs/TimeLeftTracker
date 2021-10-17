@@ -19,6 +19,7 @@
 		17638A1526E35E4F00E1B298 /* timers.json in Resources */ = {isa = PBXBuildFile; fileRef = 17638A1426E35E4F00E1B298 /* timers.json */; };
 		17638A1726E54A8800E1B298 /* TimerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17638A1626E54A8800E1B298 /* TimerDetails.swift */; };
 		17638A1926E56B2500E1B298 /* UserTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17638A1826E56B2500E1B298 /* UserTextField.swift */; };
+		1792A55C271C1D640000F199 /* ActiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1792A55B271C1D640000F199 /* ActiveButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		17638A1426E35E4F00E1B298 /* timers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = timers.json; sourceTree = "<group>"; };
 		17638A1626E54A8800E1B298 /* TimerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDetails.swift; sourceTree = "<group>"; };
 		17638A1826E56B2500E1B298 /* UserTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTextField.swift; sourceTree = "<group>"; };
+		1792A55B271C1D640000F199 /* ActiveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				17638A0D26E2DAE400E1B298 /* TimeTrackerRow.swift */,
 				17638A1626E54A8800E1B298 /* TimerDetails.swift */,
 				17638A1826E56B2500E1B298 /* UserTextField.swift */,
+				1792A55B271C1D640000F199 /* ActiveButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				176389E226E2DA0A00E1B298 /* TimeLeftTrackerApp.swift in Sources */,
 				17638A0E26E2DAE400E1B298 /* TimeTrackerRow.swift in Sources */,
 				17638A1926E56B2500E1B298 /* UserTextField.swift in Sources */,
+				1792A55C271C1D640000F199 /* ActiveButton.swift in Sources */,
 				17638A1726E54A8800E1B298 /* TimerDetails.swift in Sources */,
 				17638A1326E2DC9500E1B298 /* TimeTrackerHandler.swift in Sources */,
 			);
