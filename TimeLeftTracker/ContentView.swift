@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-      
+    
     @EnvironmentObject var modelData : ModelData
     
-     
+    
     var body: some View {
         NavigationView
         {
@@ -23,7 +23,21 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Timers")
+            .navigationBarItems(leading: EditButton(), trailing: addButton)
         }
+    }
+    
+    private var addButton: some View {
+        return AnyView(Button(action: onAdd) { Image(systemName: "plus") })
+    }
+    private func onAdd() {
+        
+        var biggestId = 0;
+        for item in modelData.timers{
+            biggestId = max(biggestId, item.id)
+        }
+        
+        modelData.timers.append(TimeTrackerModel(id: biggestId + 1, name: "New timer", active: false))
     }
 }
 
