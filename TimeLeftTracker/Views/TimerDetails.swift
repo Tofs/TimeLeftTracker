@@ -28,9 +28,10 @@ struct TimerDetails: View {
                 Spacer()
             }
             Spacer()
-       
         }
     }
+    
+   
 }
 
 struct TimerDetails_Previews: PreviewProvider {

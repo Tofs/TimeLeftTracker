@@ -8,25 +8,45 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @EnvironmentObject var modelData : ModelData
     
     
     var body: some View {
         NavigationView
         {
-            List(modelData.timers){
-                timer in
-                NavigationLink(destination: TimerDetails(model: timer))
-                {
-                 TimeTrackerRow(timer: timer)
+            List {
+                ForEach(modelData.timers) {
+                    timer in
+                    NavigationLink(destination: TimerDetails(model: timer))
+                    {
+                        TimeTrackerRow(timer: timer )
+                    }
                 }
+                .onDelete(perform: { indexSet in
+                    self.modelData.timers.remove(atOffsets: indexSet)
+                })
             }
             .navigationTitle("Timers")
-            .navigationBarItems(leading: EditButton(), trailing: addButton)
+            .navigationBarItems(leading: Text("Timers"), trailing: addButton)
         }
     }
-    
+    /*
+    private func onDelete()
+    {
+        var index = 0;
+        for item in modelData.timers
+        {
+            if item.id == model.id{
+                break;
+            }
+            
+            index += 1;
+        }
+        
+        
+        modelData.timers.remove(at: index)
+    }
+    */
     private var addButton: some View {
         return AnyView(Button(action: onAdd) { Image(systemName: "plus") })
     }
@@ -37,7 +57,7 @@ struct ContentView: View {
             biggestId = max(biggestId, item.id)
         }
         
-        modelData.timers.append(TimeTrackerModel(id: biggestId + 1, name: "New timer", active: false))
+        modelData.timers.append(TimeTrackerModel(id: biggestId + 1, name: "asd", active: false))
     }
 }
 
