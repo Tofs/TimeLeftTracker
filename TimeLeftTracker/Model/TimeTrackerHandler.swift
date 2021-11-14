@@ -10,9 +10,48 @@ import Combine
 
 final class ModelData: ObservableObject{
     
-    @Published var timers: [TimeTrackerModel] = load("timers.json")
+    @Published var timers: [TimeTrackerModel] = get()
+    
+    func save(){
+        saveData(data: timers);
+    }
 }
 
+
+
+func saveData(data: [TimeTrackerModel])
+{
+    do {
+        let encoder = JSONEncoder()
+        let json = try encoder.encode(data)
+        
+        let defaults = UserDefaults.standard
+        defaults.set(json, forKey: "TimerData")
+    }
+    catch
+    {
+        fatalError("Failed store data")
+    }
+    
+}
+
+func get<T: Decodable>() -> T{
+    do {
+        let defaults = UserDefaults.standard
+        let data = defaults.data(forKey: "TimerData")
+        
+        if (data == nil)
+        {
+            return load("timers.json")
+        }
+        let decoder = JSONDecoder()
+        return try decoder.decode(T.self, from: data.unsafelyUnwrapped)
+    }
+    catch
+    {
+        return load("timers.json")
+    }
+}
 
 
 func load<T: Decodable>(_ fileName: String) -> T

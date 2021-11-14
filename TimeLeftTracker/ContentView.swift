@@ -30,23 +30,7 @@ struct ContentView: View {
             .navigationBarItems(leading: Text("Timers"), trailing: addButton)
         }
     }
-    /*
-    private func onDelete()
-    {
-        var index = 0;
-        for item in modelData.timers
-        {
-            if item.id == model.id{
-                break;
-            }
-            
-            index += 1;
-        }
-        
-        
-        modelData.timers.remove(at: index)
-    }
-    */
+
     private var addButton: some View {
         return AnyView(Button(action: onAdd) { Image(systemName: "plus") })
     }
@@ -58,6 +42,7 @@ struct ContentView: View {
         }
         
         modelData.timers.append(TimeTrackerModel(id: biggestId + 1, name: "asd", active: false))
+        modelData.save();
     }
 }
 
