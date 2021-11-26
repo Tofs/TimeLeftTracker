@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TimerDetails: View {
     @EnvironmentObject var modelData: ModelData
+    @State private var endDate = Date.init()
     var model : TimeTrackerModel
     
     var timerIndex: Int{
@@ -26,6 +27,9 @@ struct TimerDetails: View {
                 Text("Is active")
                 ActiveButton(isSet: $modelData.timers[timerIndex].active)
                 Spacer()
+            }
+            HStack{
+                DatePicker.init("End Time" , selection: $endDate)
             }
             Spacer()
         }
