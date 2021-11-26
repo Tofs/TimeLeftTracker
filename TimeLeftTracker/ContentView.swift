@@ -41,7 +41,7 @@ struct ContentView: View {
             biggestId = max(biggestId, item.id)
         }
         
-        modelData.timers.append(TimeTrackerModel(id: biggestId + 1, name: "asd", active: false))
+        modelData.timers.append(TimeTrackerModel(id: biggestId + 1, name: "asd", active: false, endDate: Date.init()))
         modelData.save();
     }
 }

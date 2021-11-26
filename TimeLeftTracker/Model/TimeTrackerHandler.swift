@@ -15,7 +15,9 @@ final class ModelData: ObservableObject{
     func save(){
         saveData(data: timers);
     }
+      
 }
+
 
 
 
