@@ -17,7 +17,7 @@ struct ContentView: View {
             List {
                 ForEach(modelData.timers) {
                     timer in
-                    NavigationLink(destination: TimerDetails(model: timer))
+                    NavigationLink(destination: TimerDetails(model: timer, endTime: timer.endDate))
                     {
                         TimeTrackerRow(timer: timer )
                     }

@@ -9,11 +9,17 @@ import SwiftUI
 
 struct TimerDetails: View {
     @EnvironmentObject var modelData: ModelData
+
     var model : TimeTrackerModel
     
     var timerIndex: Int{
         modelData.timers.firstIndex(where: {$0.id==model.id})!
     }
+    
+    var timerObject: TimeTrackerModel{
+        modelData.timers[timerIndex]
+    }
+    @State var endTime: Date
     
     var body: some View {
         VStack{
@@ -28,7 +34,12 @@ struct TimerDetails: View {
                 Spacer()
             }
             HStack{
-                DatePicker.init("End Time" , selection: $modelData.timers[timerIndex].endDate)
+                DatePicker
+                    .init("End Time" , selection: $endTime)
+                    .onChange(of: endTime, perform: { value in
+                        modelData.timers[timerIndex].endDate = endTime
+                        modelData.save()
+                    })
             }
             Spacer()
         }
@@ -41,7 +52,7 @@ struct TimerDetails_Previews: PreviewProvider {
     static let modelData = ModelData()
     
     static var previews: some View {
-        TimerDetails(model: modelData.timers[0])
+        TimerDetails(model: modelData.timers[0], endTime: modelData.timers[0].endDate)
             .environmentObject(modelData)
     }
 }

@@ -18,11 +18,12 @@ struct UserTextField: View {
     @State var text: String;
     var body: some View {
         TextField("Text field",
-                  text: $text,
-                  onEditingChanged: { _ in modelData.timers[timerIndex].name = text },
-                  onCommit: { print("things")}
+                  text: $text
         )
-            
+            .onChange(of: text, perform: { value in
+                modelData.timers[timerIndex].name = text
+                modelData.save()
+            })
     }
 }
 
