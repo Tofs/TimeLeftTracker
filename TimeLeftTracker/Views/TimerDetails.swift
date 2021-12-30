@@ -35,7 +35,7 @@ struct TimerDetails: View {
             }
             HStack{
                 DatePicker
-                    .init("End Time" , selection: $endTime)
+                    .init("End Time" , selection: $endTime, displayedComponents: [.date])
                     .onChange(of: endTime, perform: { value in
                         modelData.timers[timerIndex].endDate = endTime
                         modelData.save()
