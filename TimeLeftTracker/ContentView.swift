@@ -26,7 +26,6 @@ struct ContentView: View {
                     self.modelData.timers.remove(atOffsets: indexSet)
                 })
             }
-            .navigationTitle("Timers")
             .navigationBarItems(leading: Text("Timers"), trailing: addButton)
         }
     }
@@ -41,7 +40,7 @@ struct ContentView: View {
             biggestId = max(biggestId, item.id)
         }
         
-        modelData.timers.append(TimeTrackerModel(id: biggestId + 1, name: "asd", active: false, endDate: Date.init()))
+        modelData.timers.append(TimeTrackerModel(id: biggestId + 1, name: "New", active: false, endDate: Date.init()))
         modelData.save();
     }
 }
