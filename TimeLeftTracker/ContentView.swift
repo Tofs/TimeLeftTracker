@@ -24,6 +24,7 @@ struct ContentView: View {
                 }
                 .onDelete(perform: { indexSet in
                     self.modelData.timers.remove(atOffsets: indexSet)
+                    self.modelData.save()
                 })
             }
             .navigationBarItems(leading: Text("Timers"), trailing: addButton)

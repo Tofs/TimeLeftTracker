@@ -1,16 +1,16 @@
 [
     {
-        "name": "Bike",
+        "name": "Timer 1",
         "id": 1001,
         "active" : true
     },
     {
-        "name": "5 Ball",
+        "name": "Timer 2",
         "id": 1002,
         "active": false,
      },
     {
-        "name": "Mascot",
+        "name": "Timer 3",
         "id": 1003,
         "active": true,
     }
