@@ -6,33 +6,51 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct ContentView: View {
     @EnvironmentObject var modelData : ModelData
+    @State private var sendNotification = true
+    
     
     
     var body: some View {
-        NavigationView
-        {
-            List {
-                ForEach(modelData.timers) {
-                    timer in
-                    NavigationLink(destination: TimerDetails(model: timer, endTime: timer.endDate))
-                    {
-                        TimeTrackerRow(timer: timer )
+        VStack {
+        
+            NavigationView
+            {
+                List {
+                    ForEach(modelData.timers) {
+                        timer in
+                        NavigationLink(destination: TimerDetails(model: timer, endTime: timer.endDate))
+                        {
+                            TimeTrackerRow(timer: timer )
+                        }
+                    }
+
+                    .onDelete(perform: { indexSet in
+                        modelData.timers.remove(atOffsets: indexSet)
+                        modelData.save()
+                    })
+                }
+                .navigationBarItems(leading: Text("Timers"), trailing: addButton)
+            }
+            
+            Button("Request Permission") {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                    if success {
+                        print("All set!")
+                    } else if let error = error {
+                        print(error.localizedDescription)
                     }
                 }
-                .onDelete(perform: { indexSet in
-                    self.modelData.timers.remove(atOffsets: indexSet)
-                    self.modelData.save()
-                })
             }
-            .navigationBarItems(leading: Text("Timers"), trailing: addButton)
         }
     }
 
     private var addButton: some View {
-        return AnyView(Button(action: onAdd) { Image(systemName: "plus") })
+
+        AnyView(Button(action: onAdd) { Image(systemName: "plus") })
     }
     private func onAdd() {
         
