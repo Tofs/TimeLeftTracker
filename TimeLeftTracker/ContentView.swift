@@ -35,23 +35,17 @@ struct ContentView: View {
                 }
                 .navigationBarItems(leading: Text("Timers"), trailing: addButton)
             }
-            
-            Button("Request Permission") {
-                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                    if success {
-                        print("All set!")
-                    } else if let error = error {
-                        print(error.localizedDescription)
-                    }
-                }
-            }
         }
     }
 
     private var addButton: some View {
 
-        AnyView(Button(action: onAdd) { Image(systemName: "plus") })
+        AnyView(HStack {
+            Button(action: onAdd) { Image(systemName: "plus") }
+            NavigationLink(destination: Settings()) { Image(systemName: "gearshape.fill") }
+        })
     }
+    
     private func onAdd() {
         
         var biggestId = 0;
