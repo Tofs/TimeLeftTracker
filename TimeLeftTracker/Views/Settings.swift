@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Settings: View {
     @EnvironmentObject var modelData : ModelData
-    @State private var notifications = ModelData.GetUseNotification()
+    @State var notifications: Bool = false;
     
     var body: some View {
        
@@ -28,6 +28,9 @@ struct Settings: View {
                     
                 }
                 
+            }
+            .onAppear(){
+                notifications = modelData.GetUseNotification()
             }
         }
         .padding(.horizontal)
